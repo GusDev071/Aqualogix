@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+<div class="full-height">
+    <table class="table table-hover table-striped">
+        <thead class="bg-gradient text-white">
+            <tr>
+                <th>Nombre</th>
+                <th>Calle</th>
+                <th>Colonia</th>
+                <th>Litros</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of Posts">
+                <td>{{ post.nombre }}</td>
+                <td>{{ post.calle }}</td>
+                <td>{{ post.colonia }}</td>
+                <td>{{ post.litros }}</td>
+                <td>
+                    <button class="btn btn-outline-secondary" (click)="editPost(post.id)"><i class="fa-solid fa-pen"></i></button>
+                    <button class="btn btn-outline-danger" (click)="deletePost(post.id)"><i class="fa-solid fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
