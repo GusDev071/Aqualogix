@@ -3,6 +3,8 @@ import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post.model';
 import { from } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service'; // Asegúrate de usar la ruta correcta a tu servicio AuthService
+
 
 @Component({
   selector: 'app-mostrar',
@@ -12,11 +14,15 @@ import { Router } from '@angular/router';
 export class MostrarComponent implements OnInit {
   Posts: Post[] = [];
 
-  constructor(private postService: PostService, private router: Router) { }
+  constructor(private postService: PostService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    from(this.postService.getPosts()).subscribe(posts => {
-      this.Posts = posts;
+    this.authService.getUser().subscribe(user => {
+      if (user) {
+        from(this.postService.getPosts(user.uid)).subscribe(posts => {
+          this.Posts = posts;
+        });
+      }
     });
   }
 

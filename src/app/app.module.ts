@@ -13,6 +13,8 @@ import { CrearComponent } from './components/crear/crear.component';
 import { MostrarComponent } from './components/mostrar/mostrar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavUsuarioComponent } from './components/nav-usuario/nav-usuario.component';
+import { Home2Component } from './components/home2/home2.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EditarComponent,
     CrearComponent,
     MostrarComponent,
-    NavbarComponent
+    NavbarComponent,
+    NavUsuarioComponent,
+    Home2Component
   ],
   imports: [
     BrowserModule,

@@ -24,7 +24,7 @@ export class LoginComponent {
       try {
         await this.afAuth.signInWithEmailAndPassword(email, password);
         // Inicio de sesión exitoso, redirigir al inicio
-        this.router.navigate(['/Home']); //aqui pones a donde quieres que redirija
+        this.router.navigate(['/Home2']); //aqui pones a donde quieres que redirija
       } catch (error) {
         // Manejo de errores
       }

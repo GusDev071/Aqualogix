@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post.model';
+import { AuthService } from '../../auth.service'; // Asegúrate de usar la ruta correcta a tu servicio AuthService
+
 
 @Component({
   selector: 'app-crear',
@@ -16,7 +18,7 @@ export class CrearComponent implements OnInit {
     'litros': new FormControl(null, Validators.required)
   });
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private authService: AuthService) { }
 
   ngOnInit() {
     this.postForm = new FormGroup({
@@ -29,12 +31,22 @@ export class CrearComponent implements OnInit {
 
   onSubmit() {
     if (this.postForm.valid) {
-      const newPost: Post = this.postForm.value;
-      this.postService.createPost(newPost).then(() => {
-        // manejar éxito...
-        this.postForm.reset();
-      }).catch(() => {
-        // manejar error...
+      this.authService.getUser().subscribe(user => {
+        console.log('User:', user); // Agrega esta línea para registrar el objeto user en la consola
+        if (user) {
+          console.log('User ID:', user.uid); // Agrega esta línea para registrar el ID del usuario en la consola
+          const newPost: Post = {
+            ...this.postForm.value,
+            userId: user.uid
+          };
+          this.postService.createPost(newPost).then(() => {
+            this.postForm.reset();
+          }).catch(error => {
+            console.error('Error creating post:', error); // Agrega esta línea para registrar cualquier error que ocurra al crear el post
+          });
+        } else {
+          console.log('User is not authenticated'); // Agrega esta línea para registrar un mensaje si el usuario no está autenticado
+        }
       });
     }
   }
