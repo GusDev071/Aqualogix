@@ -15,6 +15,16 @@
         <input formControlName="calle" type="text" class="form-control" required>
     </div>
     <div class="mb-3">
+        <label class="form-label">Municipio</label>
+        <select formControlName="municipio" class="form-control" required>
+            <option value="chalco">Chalco</option>
+            <option value="tlalmanalco">Tlalmanalco</option>
+            <option value="valle_de_chalco">Valle de Chalco</option>
+            <option value="tlapala">Tlapala</option>
+            <option value="cocotitlan">Cocotitlán</option>
+        </select>
+    </div>
+    <div class="mb-3">
         <label class="form-label">Colonia</label>
         <input formControlName="colonia" type="text" class="form-control" required>
     </div>

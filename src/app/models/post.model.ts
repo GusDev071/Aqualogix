@@ -4,5 +4,8 @@ export interface Post {
     calle: string;
     nombre: string;
     colonia: string;
-    litros: Number;
+    litros: number; // Cambiado de Number a number
+    municipio: string;
+    titulo: string;
+    contenido: string;
 }

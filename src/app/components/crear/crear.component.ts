@@ -15,7 +15,8 @@ export class CrearComponent implements OnInit {
     'nombre': new FormControl(null, Validators.required),
     'calle': new FormControl(null, Validators.required),
     'colonia': new FormControl(null, Validators.required),
-    'litros': new FormControl(null, Validators.required)
+    'litros': new FormControl(null, Validators.required),
+    'municipio': new FormControl(null, Validators.required)
   });
 
   constructor(private postService: PostService, private authService: AuthService) { }
@@ -25,6 +26,7 @@ export class CrearComponent implements OnInit {
       'nombre': new FormControl(null, Validators.required),
       'calle': new FormControl(null, Validators.required),
       'colonia': new FormControl(null, Validators.required),
+      'municipio':new FormControl ('', Validators.required),
       'litros': new FormControl(null, Validators.required)
     });
   }

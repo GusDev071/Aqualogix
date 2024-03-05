@@ -17,6 +17,7 @@ export class EditarComponent implements OnInit {
   postForm: FormGroup = new FormGroup({
     'nombre': new FormControl(null, Validators.required),
     'calle': new FormControl(null, Validators.required),
+    'municipio': new FormControl(null, Validators.required), 
     'colonia': new FormControl(null, Validators.required),
     'litros': new FormControl(null, Validators.required)
   });
@@ -30,6 +31,7 @@ export class EditarComponent implements OnInit {
         this.postForm.setValue({
           nombre: post.nombre,
           calle: post.calle,
+          municipio: post.municipio,
           colonia: post.colonia,
           litros: post.litros
         });

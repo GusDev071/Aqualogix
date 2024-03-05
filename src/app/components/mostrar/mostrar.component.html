@@ -6,6 +6,7 @@
             <tr>
                 <th>Nombre</th>
                 <th>Calle</th>
+                <th>Municipio</th>
                 <th>Colonia</th>
                 <th>Litros</th>
             </tr>
@@ -14,6 +15,7 @@
             <tr *ngFor="let post of Posts">
                 <td>{{ post.nombre }}</td>
                 <td>{{ post.calle }}</td>
+                <td>{{ post.municipio }}</td>
                 <td>{{ post.colonia }}</td>
                 <td>{{ post.litros }}</td>
                 <td>
@@ -23,4 +25,13 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="floating-buttons">
+        <button class="btn btn-warning" (click)="generatePDF()">
+            <i class="fa-solid fa-print"></i> Generar PDF
+        </button>
+        <button class="btn btn-success" (click)="printTotalLitros()">
+            <i class="fa-solid fa-print"></i> Imprimir total de litros
+        </button>
+    </div>
 </div>
