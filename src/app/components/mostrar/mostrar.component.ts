@@ -47,15 +47,14 @@ export class MostrarComponent implements OnInit {
     const tableData = this.Posts.map(post => ({
       nombre: post.nombre,
       calle: post.calle,
-      municipio: post.municipio,
       colonia: post.colonia,
       litros: post.litros
-    })).sort((a, b) => a.municipio.localeCompare(b.municipio));
+    })).sort((a, b) => a.colonia.localeCompare(b.colonia));
 
     // Agregar la tabla al documento
     autoTable(doc, {
-      head: [['Nombre', 'Calle', 'Municipio', 'Colonia', 'Litros']],
-      body: tableData.map(row => [row.nombre, row.calle, row.municipio, row.colonia, row.litros]),
+      head: [['Nombre', 'Calle', 'Colonia', 'Litros']],
+      body: tableData.map(row => [row.nombre, row.calle, row.colonia, row.litros]),
       startY: 20
     });
 
@@ -68,23 +67,23 @@ export class MostrarComponent implements OnInit {
 
     // Calcular la suma total de litros por municipio
     const totals: { [key: string]: number } = this.Posts.reduce((acc: { [key: string]: number }, post: Post) => {
-      if (!acc[post.municipio]) {
-        acc[post.municipio] = 0;
+      if (!acc[post.colonia]) {
+        acc[post.colonia] = 0;
       }
-      acc[post.municipio] += Number(post.litros); // Asegúrate de que los litros se traten como números
+      acc[post.colonia] += Number(post.litros); // Asegúrate de que los litros se traten como números
       return acc;
     }, {});
 
     // Crear un array de objetos para la tabla
-    const tableData = Object.keys(totals).map(municipio => ({
-      municipio,
-      litros: totals[municipio]
+    const tableData = Object.keys(totals).map(colonia => ({
+      colonia,
+      litros: totals[colonia]
     }));
 
     // Agregar la tabla al documento
     autoTable(doc, {
-      head: [['Municipio', 'Total Litros']],
-      body: tableData.map(row => [row.municipio, row.litros]),
+      head: [['Colonias', 'Total Litros']],
+      body: tableData.map(row => [row.colonia, row.litros]),
       startY: 20
     });
 

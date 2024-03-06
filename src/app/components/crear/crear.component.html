@@ -5,31 +5,59 @@
 <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
 
     <div class="mb-3">
-        <label class="form-label">Nombre</label>
+        <label class="form-label">Nombre:</label>
         <input formControlName="nombre" type="text" class="form-control" required>
     </div>
     <div class="mb-3">
-        <label class="form-label">Calle</label>
+        <label class="form-label">Calle:</label>
         <input formControlName="calle" type="text" class="form-control" required>
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Municipio</label>
-        <select formControlName="municipio" class="form-control" required>
-            <option value="chalco">Chalco</option>
-            <option value="tlalmanalco">Tlalmanalco</option>
-            <option value="valle_de_chalco">Valle de Chalco</option>
-            <option value="tlapala">Tlapala</option>
-            <option value="cocotitlan">Cocotitlán</option>
+        <label class="form-label">Colonias:</label>
+        <select formControlName="colonia" class="form-control" required>
+            <option value="deposito_lado_de_abajo">Deposito lado de abajo</option>
+            <option value="justo_pastor">Justo pastor</option>
+            <option value="la_esperanza">La esperanza</option>
+            <option value="la_magueyera">La Magueyera</option>
+            <option value="el_mirador">El mirador</option>
+            <option value="las_flores">Las flores</option>
+            <option value="alemania">Alemania</option>
+            <option value="herculano_aguilar">Herculano aguilar</option>
+            <option value="la_longaniza">La longaniza</option>
+            <option value="ranchos">Ranchos</option>
+            <option value="apoyo_a_la_preparatoria">Apoyo a la preparatoria</option>
+            <option value="calle_san_martin">Calle san martin</option>
+            <option value="camino_a_san_andres">Camino a san andrés</option>
+            <option value="moctezuma">Moctezuma</option>
+            <option value="deposito_lado_de_arriba">Deposito lado de arriba</option>
+            <option value="los_arcos">Los arcos</option>
+            <option value="la_esperanza_circuito_1_y_3">La esperanza circuito 1 y 3</option>
+            <option value="colonia_mirador">Colonia mirador</option>
+            <option value="prolongacion_las_flores">Prolongación las flores</option>
+            <option value="prolongacion_29_de_agosto">Prolongación 29 de agosto</option>
+            <option value="la_curva_de_san_andres">La curva de san andrés</option>
+            <option value="apoyo_a_la_primaria_lic_luis_cabrera_tm_y_tm">Apoyo a la primaria Lic. Luis Cabrera T.M y T.M</option>
+            <option value="loma_bonita_zacatlale">Loma bonita(Zacatlale)</option>
+            <option value="camino_viejo_a_temamatla">Camino viejo a temamatla</option>
+            <option value="los_nachos">Los nachos</option>
+            <option value="tierra_y_libertad">Tierra y libertad</option>
+            <option value="tetenco">Tetenco</option>
+            <option value="los_rikis">Los rikis</option>
+            <option value="dolores_y_cda_de_dolores">Dolores y Cda. de dolores</option>
+            <option value="cda_de_la_virgen_1ra_y_2da">Cda de la virgen 1ra y 2da</option>
+            <option value="cda_5_de_febrero">Cda 5 de febrero</option>
+            <option value="las_vias">Las vias</option>
+            <option value="apoyo_a_centro_de_salud_imcufidec_casa_de_cultura">Apoyo a centro de salud, IMCUFIDEC, casa de cultura</option>
+            <option value="col_bugambilias">Col. bugambilias</option>
+            <option value="col_las_cazuelas">Col. Las cazuelas</option>
+            <option value="camino_al_ocotal">Camino al ocotal</option>
+            <option value="centenario_de_la_educacion">Centenario de la educación</option>
         </select>
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Colonia</label>
-        <input formControlName="colonia" type="text" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Litros</label>
+        <label class="form-label">Litros:</label>
         <input formControlName="litros" type="text" class="form-control" required>
     </div>
 
